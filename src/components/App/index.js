@@ -1,13 +1,17 @@
 // == Import npm
 import React from 'react';
 
+// == Import Composants
+import Cards from 'src/components/Cards';
+
 // == Import
-import './styles.css';
+import './styles.scss';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <h1>Composant : App</h1>
+    <h1 className="app-title">Movie Card'z</h1>
+    <Cards />
   </div>
 );
 
