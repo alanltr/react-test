@@ -40,7 +40,6 @@ Cards.propTypes = {
     }).isRequired,
   ).isRequired,
   loadMovies: PropTypes.func.isRequired,
-  string: PropTypes.func.isRequired,
   selectedCategory: PropTypes.string.isRequired,
 };
 

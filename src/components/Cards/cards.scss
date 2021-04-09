@@ -13,24 +13,91 @@
     border: 2px solid black;
     border-radius: 20px;
     overflow: hidden;
-    
+
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 30% 20% 15% 25% 10% ;
+    grid-template-areas: 
+      "title title title title"
+      "category category category category"
+      " . . . delete"
+      " . thumbup thumbdown ."
+      "likebar likebar likebar likebar"
+    ;
     .card-title {
+      grid-area: title;
+      display: grid;
+      place-content: center;
       font-weight: bold;
-      font-size: 200%;
-      margin: 1em 0.5em;
+      font-size: 2.2em;
     }
 
     .card-category {
+      grid-area: category;
+      display: grid;
+      place-content: center;
       font-style: italic;
+      font-size: 1.3em;
+    }
+
+    .card-thumbup {
+      grid-area: thumbup;
+      border: none;
+      background: transparent;
+      svg {
+        font-size: 300%;
+      }
+      &:active{
+        svg {
+          color: green;
+        }
+      }
+    }
+
+    .card-thumbdown {
+      grid-area: thumbdown;
+      border: none;
+      background: transparent;
+      svg {
+        font-size: 300%;
+      }
+      &:active{
+        svg {
+          color: red;
+        }
+      }
     }
 
     .card-like-dislike-ratio {
+      grid-area: likebar;
+      place-self: end;
       width: 100%;
       height: 15px;
       background-color: red;
       div {
         background-color: green;
         height: 100%;
+      }
+    }
+
+    .card-delete {
+      grid-area: delete;
+      background-color: red;
+      margin-left: 40px;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border: none;
+      svg {
+        color: white;
+        font-size: 200%;
+      }
+      &:active{
+        background-color: white;
+        border: 2px solid red;
+        border-right: none;
+        svg {
+          color: red;
+        }
       }
     }
   }

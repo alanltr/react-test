@@ -20,19 +20,21 @@ const Card = ({
       <div className="card-category">
         {category}
       </div>
-      <div className="card-thumbup">
+      <button type="button" className="card-thumbup">
         <ThumbUpIcon />
-      </div>
-      <div className="card-thumbdown">
+      </button>
+      <button type="button" className="card-thumbdown">
         <ThumbDownIcon />
-      </div>
-      <DeleteForeverIcon />
+      </button>
+      <button type="button" className="card-delete">
+        <DeleteForeverIcon />
+      </button>
       <div className="card-like-dislike-ratio">
         <div style={{ width: `${likePercentage}` }} />
       </div>
     </div>
   );
-}
+};
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
