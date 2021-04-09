@@ -62,4 +62,5 @@ const movies = [
   },
 ]
 
+// eslint-disable-next-line import/prefer-default-export
 export const movies$ = new Promise((resolve, reject) => setTimeout(resolve, 100, movies));

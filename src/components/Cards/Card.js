@@ -1,23 +1,26 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
-// == Import
-import './cards.scss';
-
 // == Composant
-const Card = () => (
+const Card = ({
+  title,
+  category,
+  likes,
+  dislikes,
+}) => (
   <div className="card-component">
-    <h2 className="card-title">Les Indestructibles 2</h2>
+    <h2 className="card-title">{title}</h2>
     <div className="card-category">
-      Catégorie
+      {category}
     </div>
     <div className="card-thumbup">
       <ThumbUpIcon />
     </div>
-    <div className="card-thumbup">
+    <div className="card-thumbdown">
       <ThumbDownIcon />
     </div>
     <DeleteForeverIcon />
@@ -26,6 +29,13 @@ const Card = () => (
     </div>
   </div>
 );
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
+  dislikes: PropTypes.number.isRequired,
+};
 
 // == Export
 export default Card;

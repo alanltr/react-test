@@ -1,5 +1,6 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import Card from './Card';
 
@@ -7,19 +8,28 @@ import Card from './Card';
 import './cards.scss';
 
 // == Composant
-const Cards = () => (
-  <div className="cards-component">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-  </div>
-);
+const Cards = ({ movies, loadMovies }) => {
+  useEffect(() => {
+    loadMovies();
+  }, []);
+
+  return (
+    <div className="cards-component">
+      {movies.map((movie) => (
+        <Card key={movie.id} {...movie} />
+      ))}
+    </div>
+  );
+};
+
+Cards.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  loadMovies: PropTypes.func.isRequired,
+};
 
 // == Export
 export default Cards;
