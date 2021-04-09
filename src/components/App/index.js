@@ -2,7 +2,7 @@
 import React from 'react';
 
 // == Import Composants
-import Cards from 'src/components/Cards';
+import Cards from 'src/containers/Cards';
 
 // == Import
 import './styles.scss';
