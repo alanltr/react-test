@@ -39,6 +39,17 @@ const restaurantMiddleware = (store) => (next) => (action) => {
       // Puis on l'enregistre dans le state
       store.dispatch(updateMoviesArray(newArray));
 
+      // Ensuite on s'occupe d'actualiser les catégories
+      const categoryArr = [];
+      newArray.map((item) => {
+        categoryArr.push(item.category);
+      });
+
+      // On retire les doublons du tableau
+      const filteredCategories = [...new Set(categoryArr)];
+      // Sauvegarde dans le state de nos catégories
+      store.dispatch(saveCategories(filteredCategories));
+
       next(action);
       break;
     }
