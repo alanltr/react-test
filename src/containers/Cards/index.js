@@ -7,7 +7,6 @@ import { loadMovies, deleteMovie } from 'src/actions/cardsActions';
 // === mapStateToProps
 const mapStateToProps = (state) => ({
   movies: state.cards.movies,
-  moviesLayer: state.cards.moviesLayer,
   selectedCategory: state.cards.selectedCategory,
 });
 

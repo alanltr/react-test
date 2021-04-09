@@ -32,7 +32,7 @@ const restaurantMiddleware = (store) => (next) => (action) => {
     }
     case DELETE_MOVIE: {
       const { id } = action;
-      const originalArray = store.getState().cards.moviesLayer;
+      const originalArray = store.getState().cards.movies;
 
       // On recupere un tableau en enlevant l'élément don on fourni l'id
       const newArray = originalArray.filter((movie) => movie.id !== id);

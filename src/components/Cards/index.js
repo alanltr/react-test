@@ -10,20 +10,18 @@ import './cards.scss';
 // == Composant
 const Cards = ({
   movies,
-  moviesLayer,
   loadMovies,
   selectedCategory,
   deleteMovie,
 }) => {
   useEffect(() => {
     loadMovies();
-    console.log('ici')
   }, []);
 
   return (
     <div className="cards-component">
       {/* Si aucune catégorie sélectionnée */}
-      {selectedCategory === ' ' && moviesLayer.map((movie) => (
+      {selectedCategory === ' ' && movies.map((movie) => (
         <Card
           key={movie.id}
           {...movie}
@@ -31,7 +29,7 @@ const Cards = ({
         />
       ))}
       {/* Si une catégorie est sélectionnée */}
-      {selectedCategory !== ' ' && moviesLayer.map((movie) => (
+      {selectedCategory !== ' ' && movies.map((movie) => (
         // Et que sa catégorie = la catégorie sélectionnée
         selectedCategory === movie.category && (
         <Card
@@ -46,12 +44,6 @@ const Cards = ({
 
 Cards.propTypes = {
   movies: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
-  moviesLayer: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,

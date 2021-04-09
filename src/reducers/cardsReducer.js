@@ -8,7 +8,6 @@ import {
 
 const initialState = {
   movies: [],
-  moviesLayer: [],
   categories: [],
   isOpenSelect: false,
   selectedCategory: ' ',
@@ -20,7 +19,6 @@ function cardsReducer(state = initialState, action = {}) {
       return {
         ...state,
         movies: action.data,
-        moviesLayer: action.data,
       };
     case SAVE_CATEGORIES:
       return {
@@ -40,7 +38,7 @@ function cardsReducer(state = initialState, action = {}) {
     case UPDATE_MOVIES_ARRAY:
       return {
         ...state,
-        moviesLayer: action.newArray,
+        movies: action.newArray,
       };
     default:
       return state;
