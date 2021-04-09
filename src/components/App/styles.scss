@@ -1,6 +1,9 @@
+@use 'src/styles/vars';
+
 #root {
   min-height: 100vh;
-  background-color: #00acee;
+  background-image: url('../../assets/bg.jpg');
+  font-family: vars.$mainFont;
 }
 
 .app {
@@ -13,9 +16,11 @@
   grid-template-areas: 
     " . title filter"
     "cards cards cards";
+
   h1.app-title {
     font-size: 60px;
     grid-area: title;
+    font-family: vars.$titleFont;
   }
 
   .app-filter {

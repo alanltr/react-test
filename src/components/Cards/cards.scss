@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 .cards-component {
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +35,10 @@
       place-content: center;
       font-weight: bold;
       font-size: 2.2em;
+      padding-right: 0.2em;
+      padding-left: 0.2em;
+      margin-top: 0.2em;
+      text-transform: capitalize;
     }
 
     .card-category {
