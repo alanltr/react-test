@@ -3,10 +3,12 @@ import {
   SAVE_CATEGORIES,
   TOGGLE_IS_OPEN_SELECT,
   SET_SELECTED_CATEGORY,
+  UPDATE_MOVIES_ARRAY,
 } from 'src/actions/cardsActions';
 
 const initialState = {
   movies: [],
+  moviesLayer: [],
   categories: [],
   isOpenSelect: false,
   selectedCategory: ' ',
@@ -18,6 +20,7 @@ function cardsReducer(state = initialState, action = {}) {
       return {
         ...state,
         movies: action.data,
+        moviesLayer: action.data,
       };
     case SAVE_CATEGORIES:
       return {
@@ -33,6 +36,11 @@ function cardsReducer(state = initialState, action = {}) {
       return {
         ...state,
         selectedCategory: action.value,
+      };
+    case UPDATE_MOVIES_ARRAY:
+      return {
+        ...state,
+        moviesLayer: action.newArray,
       };
     default:
       return state;

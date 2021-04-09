@@ -30,6 +30,7 @@ const Filter = ({
   selectedCategory,
   toggleSelect,
   setSelectedCategory,
+  loadMovies,
 }) => {
   const classes = useStyles();
 
@@ -46,7 +47,7 @@ const Filter = ({
           value={selectedCategory}
           onChange={setSelectedCategory}
         >
-          <MenuItem value=" ">
+          <MenuItem value=" " onClick={loadMovies}>
             <em>All categories</em>
           </MenuItem>
           {categories.map((category) => (
@@ -68,6 +69,7 @@ Filter.propTypes = {
   isOpenSelect: PropTypes.bool.isRequired,
   selectedCategory: PropTypes.string.isRequired,
   toggleSelect: PropTypes.func.isRequired,
+  loadMovies: PropTypes.func.isRequired,
   setSelectedCategory: PropTypes.func.isRequired,
 };
 

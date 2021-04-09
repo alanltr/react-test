@@ -2,7 +2,11 @@ import { connect } from 'react-redux';
 
 import Filter from 'src/components/Filter';
 
-import { toggleIsOpenSelect, setSelectedCategory } from 'src/actions/cardsActions';
+import {
+  toggleIsOpenSelect,
+  setSelectedCategory,
+  loadMovies,
+} from 'src/actions/cardsActions';
 
 // === mapStateToProps
 const mapStateToProps = (state) => ({
@@ -18,6 +22,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setSelectedCategory: (e) => {
     dispatch(setSelectedCategory(e.target.value));
+  },
+  loadMovies: () => {
+    dispatch(loadMovies());
   },
 });
 

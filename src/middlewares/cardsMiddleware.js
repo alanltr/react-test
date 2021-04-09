@@ -1,4 +1,10 @@
-import { LOAD_MOVIES, saveMovies, saveCategories } from 'src/actions/cardsActions';
+import {
+  LOAD_MOVIES,
+  saveMovies,
+  saveCategories,
+  DELETE_MOVIE,
+  updateMoviesArray,
+} from 'src/actions/cardsActions';
 import { movies$ } from 'src/assets/data/movies';
 
 const restaurantMiddleware = (store) => (next) => (action) => {
@@ -20,6 +26,18 @@ const restaurantMiddleware = (store) => (next) => (action) => {
         // Sauvegarde dans le state de nos catégories
         store.dispatch(saveCategories(categories));
       });
+
+      next(action);
+      break;
+    }
+    case DELETE_MOVIE: {
+      const { id } = action;
+      const originalArray = store.getState().cards.moviesLayer;
+
+      // On recupere un tableau en enlevant l'élément don on fourni l'id
+      const newArray = originalArray.filter((movie) => movie.id !== id);
+      // Puis on l'enregistre dans le state
+      store.dispatch(updateMoviesArray(newArray));
 
       next(action);
       break;

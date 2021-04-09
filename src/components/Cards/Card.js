@@ -7,10 +7,12 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 // == Composant
 const Card = ({
+  id,
   title,
   category,
   likes,
   dislikes,
+  deleteMovie,
 }) => {
   const likePercentage = `${Math.round(((likes / (likes + dislikes)) * 100))}%`;
 
@@ -26,7 +28,7 @@ const Card = ({
       <button type="button" className="card-thumbdown">
         <ThumbDownIcon />
       </button>
-      <button type="button" className="card-delete">
+      <button type="button" onClick={deleteMovie} className="card-delete" value={id}>
         <DeleteForeverIcon />
       </button>
       <div className="card-like-dislike-ratio">
@@ -36,10 +38,12 @@ const Card = ({
   );
 };
 Card.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   likes: PropTypes.number.isRequired,
   dislikes: PropTypes.number.isRequired,
+  deleteMovie: PropTypes.func.isRequired,
 };
 
 // == Export
