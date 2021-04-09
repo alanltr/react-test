@@ -4,7 +4,6 @@
   justify-content: space-evenly;
   padding: 1em 0em;
   width: 100%;
-  height: 95%; // TODO: checker si necessaire
   background-color: wheat;
   .card-component{
     margin: 15px;
@@ -14,5 +13,25 @@
     border: 2px solid black;
     border-radius: 20px;
     
+    .card-title {
+      font-weight: bold;
+      font-size: 200%;
+      margin: 1em 0.5em;
+    }
+
+    .card-category {
+      font-style: italic;
+    }
+
+    .card-like-dislike-ratio {
+      width: 100%;
+      height: 20px;
+      background-color: grey;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      div {
+        
+      }
+    }
   }
 }
