@@ -7,6 +7,7 @@ import { loadMovies } from 'src/actions/cardsActions';
 // === mapStateToProps
 const mapStateToProps = (state) => ({
   movies: state.cards.movies,
+  selectedCategory: state.cards.selectedCategory,
 });
 
 // === mapDispatchToProps

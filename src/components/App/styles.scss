@@ -4,8 +4,24 @@
   height: 100vh;
   padding: 1.5em;
   text-align: center;
+
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 10% auto;
+  grid-template-areas: 
+    " . title filter"
+    "cards cards cards";
   h1.app-title {
     font-size: 60px;
+    grid-area: title;
+  }
+
+  .app-filter {
+    grid-area: filter;
+  }
+
+  .app-cards {
+    grid-area: cards;
   }
 }
 

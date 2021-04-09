@@ -8,15 +8,23 @@ import Card from './Card';
 import './cards.scss';
 
 // == Composant
-const Cards = ({ movies, loadMovies }) => {
+const Cards = ({
+  movies,
+  loadMovies,
+  selectedCategory,
+}) => {
   useEffect(() => {
     loadMovies();
   }, []);
 
   return (
     <div className="cards-component">
-      {movies.map((movie) => (
+      {selectedCategory === ' ' && movies.map((movie) => (
         <Card key={movie.id} {...movie} />
+      ))}
+      {selectedCategory !== ' ' && movies.map((movie) => (
+        selectedCategory === movie.category
+        && <Card key={movie.id} {...movie} />
       ))}
     </div>
   );
@@ -29,6 +37,7 @@ Cards.propTypes = {
     }).isRequired,
   ).isRequired,
   loadMovies: PropTypes.func.isRequired,
+  string: PropTypes.func.isRequired,
 };
 
 // == Export

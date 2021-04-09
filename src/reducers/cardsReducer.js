@@ -1,8 +1,15 @@
-import { SAVE_MOVIES, SAVE_CATEGORIES } from 'src/actions/cardsActions';
+import {
+  SAVE_MOVIES,
+  SAVE_CATEGORIES,
+  TOGGLE_IS_OPEN_SELECT,
+  SET_SELECTED_CATEGORY,
+} from 'src/actions/cardsActions';
 
 const initialState = {
   movies: [],
   categories: [],
+  isOpenSelect: false,
+  selectedCategory: ' ',
 };
 
 function cardsReducer(state = initialState, action = {}) {
@@ -16,6 +23,16 @@ function cardsReducer(state = initialState, action = {}) {
       return {
         ...state,
         categories: action.data,
+      };
+    case TOGGLE_IS_OPEN_SELECT:
+      return {
+        ...state,
+        isOpenSelect: !state.isOpenSelect,
+      };
+    case SET_SELECTED_CATEGORY:
+      return {
+        ...state,
+        selectedCategory: action.value,
       };
     default:
       return state;
