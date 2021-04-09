@@ -19,10 +19,13 @@ const Cards = ({
 
   return (
     <div className="cards-component">
+      {/* Si aucune catégorie sélectionnée */}
       {selectedCategory === ' ' && movies.map((movie) => (
         <Card key={movie.id} {...movie} />
       ))}
+      {/* Si une catégorie est sélectionnée */}
       {selectedCategory !== ' ' && movies.map((movie) => (
+        // Et que sa catégorie = la catégorie sélectionnée
         selectedCategory === movie.category
         && <Card key={movie.id} {...movie} />
       ))}
@@ -38,6 +41,7 @@ Cards.propTypes = {
   ).isRequired,
   loadMovies: PropTypes.func.isRequired,
   string: PropTypes.func.isRequired,
+  selectedCategory: PropTypes.string.isRequired,
 };
 
 // == Export
