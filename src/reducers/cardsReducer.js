@@ -1,7 +1,8 @@
-import { SAVE_MOVIES } from 'src/actions/cardsActions';
+import { SAVE_MOVIES, SAVE_CATEGORIES } from 'src/actions/cardsActions';
 
 const initialState = {
   movies: [],
+  categories: [],
 };
 
 function cardsReducer(state = initialState, action = {}) {
@@ -10,6 +11,11 @@ function cardsReducer(state = initialState, action = {}) {
       return {
         ...state,
         movies: action.data,
+      };
+    case SAVE_CATEGORIES:
+      return {
+        ...state,
+        categories: action.data,
       };
     default:
       return state;
