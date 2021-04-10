@@ -11,12 +11,15 @@
     margin: 15px;
     width: 300px;
     height: 250px;
-    background-color: white;
+    background-color: vars.$darkenColor;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transition: all 1s cubic-bezier(.25,.8,.25,1);
     &:hover {
+      transform: scale(1.02);
       box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+      transition: 0.2s;
     }
 
     display: grid;
@@ -31,6 +34,7 @@
     ;
     .card-title {
       grid-area: title;
+      color: vars.$mainColor;
       display: grid;
       place-content: center;
       font-weight: bold;
@@ -43,6 +47,7 @@
 
     .card-category {
       grid-area: category;
+      color: rgb(255, 255, 142);
       display: grid;
       place-content: center;
       font-style: italic;
@@ -55,6 +60,7 @@
       background: transparent;
       svg {
         font-size: 300%;
+        color: vars.$mainColor;
       }
       &:hover{
         svg {
@@ -69,6 +75,7 @@
       background: transparent;
       svg {
         font-size: 300%;
+        color: vars.$mainColor;
       }
       &:hover{
         svg {
@@ -92,20 +99,26 @@
     .card-delete {
       grid-area: delete;
       background-color: red;
-      margin-left: 40px;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
+      margin-left: 48px;
+      height: 25px;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
       border: none;
       svg {
-        color: white;
-        font-size: 200%;
+        color: vars.$darkenColor;
+        font-size: 150%;
+        // padding-top: 3px;
+        // margin-right: 0px;
+        margin-top: 1.5px;
       }
       &:active{
-        background-color: white;
+        background-color: vars.$darkenColor;
         border: 2px solid red;
         border-right: none;
         svg {
           color: red;
+          // margin-right: 10px;
+          margin-top: -1px;
         }
       }
     }
