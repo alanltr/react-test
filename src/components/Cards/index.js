@@ -13,6 +13,7 @@ const Cards = ({
   loadMovies,
   selectedCategory,
   deleteMovie,
+  currentMovies,
 }) => {
   useEffect(() => {
     loadMovies();
@@ -21,7 +22,7 @@ const Cards = ({
   return (
     <div className="cards-component">
       {/* Si aucune catégorie sélectionnée */}
-      {selectedCategory === ' ' && movies.map((movie) => (
+      {selectedCategory === ' ' && currentMovies.map((movie) => (
         <Card
           key={movie.id}
           {...movie}
@@ -29,7 +30,7 @@ const Cards = ({
         />
       ))}
       {/* Si une catégorie est sélectionnée */}
-      {selectedCategory !== ' ' && movies.map((movie) => (
+      {selectedCategory !== ' ' && currentMovies.map((movie) => (
         // Et que sa catégorie = la catégorie sélectionnée
         selectedCategory === movie.category && (
         <Card

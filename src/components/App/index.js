@@ -4,6 +4,7 @@ import React from 'react';
 // == Import Composants
 import Cards from 'src/containers/Cards';
 import Filter from 'src/containers/Filter';
+import PaginationPerso from 'src/containers/Pagination';
 
 // == Import
 import './styles.scss';
@@ -17,6 +18,9 @@ const App = () => (
     </div>
     <div className="app-cards">
       <Cards />
+    </div>
+    <div className="app-pagination">
+      <PaginationPerso />
     </div>
   </div>
 );

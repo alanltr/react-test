@@ -4,10 +4,12 @@ import {
   TOGGLE_IS_OPEN_SELECT,
   SET_SELECTED_CATEGORY,
   UPDATE_MOVIES_ARRAY,
+  SET_CURRENT_MOVIES,
 } from 'src/actions/cardsActions';
 
 const initialState = {
   movies: [],
+  currentMovies: [],
   categories: [],
   isOpenSelect: false,
   selectedCategory: ' ',
@@ -39,6 +41,11 @@ function cardsReducer(state = initialState, action = {}) {
       return {
         ...state,
         movies: action.newArray,
+      };
+    case SET_CURRENT_MOVIES:
+      return {
+        ...state,
+        currentMovies: action.newArray,
       };
     default:
       return state;

@@ -1,10 +1,14 @@
+/* eslint-disable array-callback-return */
 import {
   LOAD_MOVIES,
   saveMovies,
   saveCategories,
   DELETE_MOVIE,
   updateMoviesArray,
+  setCurrentMovies,
 } from 'src/actions/cardsActions';
+import { setTotalItems } from 'src/actions/paginationActions';
+
 import { movies$ } from 'src/assets/data/movies';
 
 const restaurantMiddleware = (store) => (next) => (action) => {
@@ -14,6 +18,14 @@ const restaurantMiddleware = (store) => (next) => (action) => {
       movies$.then((data) => {
         // Sauvegarde dans le state de nos films
         store.dispatch(saveMovies(data));
+
+        // On détermine le tableau en fonction de la pagination
+        const { nbItemsPerPage } = store.getState().pagination;
+        const currentMovies = data.filter((movie) => movie.id < (nbItemsPerPage + 1));
+        store.dispatch(setCurrentMovies(currentMovies));
+
+        // On enregistre dans le state le nb total pour la pagination
+        store.dispatch(setTotalItems(data.length));
 
         const categoryArr = [];
         // On map sur notre tableau pour récupérer les catégories
@@ -39,6 +51,9 @@ const restaurantMiddleware = (store) => (next) => (action) => {
       // Puis on l'enregistre dans le state
       store.dispatch(updateMoviesArray(newArray));
 
+      // On enregistre dans le state le nb total pour la pagination
+      store.dispatch(setTotalItems(newArray.length));
+
       // Ensuite on s'occupe d'actualiser les catégories
       const categoryArr = [];
       newArray.map((item) => {
@@ -49,6 +64,11 @@ const restaurantMiddleware = (store) => (next) => (action) => {
       const filteredCategories = [...new Set(categoryArr)];
       // Sauvegarde dans le state de nos catégories
       store.dispatch(saveCategories(filteredCategories));
+
+      // On détermine le tableau en fonction de la pagination
+      const { nbItemsPerPage } = store.getState().pagination;
+      const currentMovies = newArray.filter((movie) => movie.id < (nbItemsPerPage + 1));
+      store.dispatch(setCurrentMovies(currentMovies));
 
       next(action);
       break;
