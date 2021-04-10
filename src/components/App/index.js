@@ -5,6 +5,7 @@ import React from 'react';
 import Cards from 'src/containers/Cards';
 import Filter from 'src/containers/Filter';
 import PaginationPerso from 'src/containers/Pagination';
+import Counter from 'src/containers/Counter';
 
 // == Import
 import './styles.scss';
@@ -21,6 +22,9 @@ const App = () => (
     </div>
     <div className="app-pagination">
       <PaginationPerso />
+    </div>
+    <div className="app-counter">
+      <Counter />
     </div>
   </div>
 );
