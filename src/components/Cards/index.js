@@ -9,7 +9,6 @@ import './cards.scss';
 
 // == Composant
 const Cards = ({
-  movies,
   loadMovies,
   selectedCategory,
   deleteMovie,
@@ -44,7 +43,7 @@ const Cards = ({
 };
 
 Cards.propTypes = {
-  movies: PropTypes.arrayOf(
+  currentMovies: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,

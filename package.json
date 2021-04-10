@@ -59,7 +59,6 @@
     "@material-ui/icons": "^4.11.2",
     "prop-types": "^15.7.2",
     "rc-pagination": "^3.1.6",
-    "rc-select": "^12.1.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.3",
